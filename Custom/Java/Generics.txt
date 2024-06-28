@@ -1,0 +1,71 @@
+write classes, interfaces, methods with a placeholder for the type of data they operate on and enable type safety
+
+`<>`    diamond operator allows compiler to infer type parameters 
+    GenericClass<String> instance = new GenericClass<>("hello");        // since Java 7
+
+Erasure
+    during compilation, generic type info is removed and replaced with appropriate casts, raw types to maintain compatability with older versions of Java
+    T -> Object
+Type Parameters -> <T> 
+        will be replaced with concrete type when an instance of class is created
+    class GenericClass<T> {
+        private T data;
+    }
+
+Generic methods
+
+    public <T> void printArray(T[] array) {
+        for (T element : array) {
+            System.out.println(element);
+        }
+    }
+
+Bounded Type Parameters
+        restrict types that can be used as type arguments
+    Upper Bounded
+        <T extends Number>      now T can only be a subtype of Number
+    Lower Bounded
+        <T super Integer>       T can be any type that is superclass of Integer
+
+Wild Cards <?>
+        represent unknown type, used to handle different types more flexibly
+    Unbounded
+        void printList(List<?> list){
+                for (Object elem : list){}
+        }
+    Upper Bounded
+        void printNumbers(List<? extends Number> list) {
+            for (Number num : list) {}
+        }
+    Lower Bounded
+        void addIntegers(List <? super Integer> list) {
+            list.add(1)
+        }
+
+
+Autoboxing:
+    auto cast between primitive type and it's wrapper
+
+    Wrapper:
+        Each primitive type has a `wrapper` class/object type
+        int -> Integer
+
+
+        Stack<Integer> stack= new Stack<Integer>();
+        stack.push(17);                             // stack.push(new Integer(17));
+        int a = s.pop();                            // stack.pop().intValue();
+
+
+Examples
+    Stack<Apple> = new Stack<Apple>();
+
+
+    public class Stack<Item>{
+        Item[] stack;
+
+        Stack(){
+            // JAVA DOESN'T ALLOW GENERIC ARRAY CREATION
+            this.stack = (Item[]) new Object[]
+        }
+    }
+

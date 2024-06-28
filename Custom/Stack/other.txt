@@ -1,0 +1,5 @@
+Node x = first;
+while (x.next.next.next != null) {
+    x = x.next;
+}
+x.next = null;

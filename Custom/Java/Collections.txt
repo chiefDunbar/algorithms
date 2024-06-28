@@ -1,0 +1,89 @@
+
+java.util.Collection
+        interface. root of hierarchy. represents group of objects known as elements.
+        sub-interfaces - `List`, `Set`, `Queue`
+
+        Methods:
+                boolean add(E e)
+                boolean remove(Object o)
+                int size()
+                boolean isEmpty()
+                boolean contains(Object o)
+                Iterator<E> iterator()
+        
+
+java.util.List
+        list API (interface) for ordered sequence of items that allows duplicates.
+    public interface List<Item> implements Iterable<Item>
+        List()
+        boolean isEmpty()               create empty list
+        int     size()                  
+        void    add(Item item)          append to end
+        Item    get(int index)      
+        Item    remove(int index)       returns and delete
+        boolean contains(Item item)
+        Iterator<Item> iterator()
+
+    
+    Implementations:
+        Implementations - `ArrayList`, `LinkedList`, `Vector`, `Stack`(Vector subclass)
+                List<String> list = new ArrayList<>();
+
+        java.util.ArrayList
+                uses resizing array 
+        java.util.LinkedList
+                uses liked list
+        java.util.Stack
+                supports push(), pop() and iteration
+                bloated and poorly designed API
+
+java.util.Queue
+        extends `Collection`. FIFO
+        
+        Implementations
+                java.util.LinkedList
+                        can be used as a list, stack , Queue
+                java.util.PriorityQueue
+                        orders elements based on their natrual ordering or by a comparator provided at queue construction time
+
+java.util.Set
+        extends `Collection`. doesn't allow duplicates
+        Implementations 
+                java.util.HashSet
+                        hash table for storage. constant-time performance 
+                java.util.LinkedHashSet
+                        linked list of entries in the set with insertion order
+                java.util.TreeSet
+                        implements `SortedSet` interface. red-black tree structure. orders elements based on values
+                
+                        Set<String> set = new HashSet<>();
+
+
+
+
+java.util.Map
+        maps keys to values. no duplicate keys. each key map to one values
+
+        Implementations
+                java.util.HashMap
+                        hash table for storage
+                java.util.LinkedHashMap
+                        linked list of entries with insertion order
+                java.util.TreeMap
+                        implements `NavigableMap` interface. red-black tree. order keys on values
+                java.util.HashTable
+                        counterpart of `HashMap`
+
+
+Utility Classes
+         static methods that operate on or return collections. It contains methods for algorithms like sorting, searching, and shuffling.
+
+        java.util.Collections
+                .sort(list)
+                .shuffle(list)
+                .binarySearch(list, item)
+
+        java.util.Arrays 
+                .sort(array)
+                .toString(array)
+                .binarySearch(array, value)        
